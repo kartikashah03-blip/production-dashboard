@@ -42,7 +42,6 @@ async function loadAll() {
 // =====================================
 // Fetch Alerts
 // =====================================
-
 async function fetchAlerts() {
 
     const response =
@@ -78,7 +77,6 @@ async function loadAnalytics() {
     document.getElementById("highRisk").innerText =
         analytics.high_risk;
 }
-
 // =====================================
 // Populate Filters
 // =====================================
