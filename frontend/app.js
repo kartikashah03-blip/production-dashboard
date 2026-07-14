@@ -157,6 +157,27 @@ function applyFilters() {
 
         });
 
+    // ✅ Add this block HERE
+
+    if (filtered.length === 0) {
+
+        document.getElementById("table").innerHTML = `
+            <tr>
+                <td colspan="9">
+                    No records found for selected filters
+                </td>
+            </tr>
+        `;
+
+        updateHighRiskCount([]);
+
+        destroyCharts();
+
+        return;
+    }
+
+    // ✅ Existing code
+
     renderTable(filtered);
 
     renderCharts(filtered);
