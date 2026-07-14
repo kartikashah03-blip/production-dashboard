@@ -47,12 +47,11 @@ async function fetchAlerts() {
 
     const response =
         await fetch(
-            "fetch(`${API_URL}/alerts`)"
+            `${API_URL}/alerts`
         );
 
     return await response.json();
 }
-
 // =====================================
 // Analytics
 // =====================================
@@ -61,7 +60,7 @@ async function loadAnalytics() {
 
     const response =
         await fetch(
-            "fetch(`${API_URL}/analytics`)"
+            `${API_URL}/analytics`
         );
 
     const analytics =
