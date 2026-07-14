@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Production Dashboard</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- html2pdf -->
+    https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.jsscript>
+
+    <!-- Custom JS -->
+    <script src="app.js" defer></script>
+
+</head>
+
+<body onload="loadAll()">
+
+    <!-- Top Bar -->
+
+    <div class="top-bar">
+
+        <h1>Production Dashboard</h1>
+
+        <button class="pdf-btn"
+                onclick="downloadPDF()">
+
+            📄 Download PDF
+
+        </button>
+
+    </div>
+
+    <!-- Dashboard Content -->
+
+    <div id="dashboard-content">
+
+        <!-- KPI Cards -->
+
+        <div class="analytics">
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Total Records</h3>
+                <p id="total">0</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📈</div>
+                <h3>Avg Adherence</h3>
+                <p id="avg">0</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚠️</div>
+                <h3>Total Shortage</h3>
+                <p id="shortage">0</p>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚨</div>
+                <h3>High Risk Count</h3>
+                <p id="highRisk">0</p>
+            </div>
+
+        </div>
+
+        <!-- Filters -->
+
+        <div class="filters">
+
+            <label>OEM</label>
+
+            <select id="oem">
+                <option value="">All OEMs</option>
+            </select>
+
+            <label>Plant</label>
+
+            <select id="plant">
+                <option value="">All Plants</option>
+            </select>
+
+            <label>Risk</label>
+
+            <select id="risk">
+                <option value="">All Risk Levels</option>
+            </select>
+
+            <button onclick="applyFilters()">
+                Apply Filters
+            </button>
+
+            <button id="clearBtn"
+                    onclick="clearFilters()">
+
+                Clear Filters
+
+            </button>
+
+        </div>
+
+        <!-- Charts -->
+
+        <div class="charts-grid">
+
+            <div class="chart-card">
+
+                <h3>Product vs Adherence</h3>
+
+                <canvas id="barChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h3>Risk Distribution</h3>
+
+                <canvas id="pieChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h3>OEM Distribution</h3>
+
+                <canvas id="doughnutChart"></canvas>
+
+            </div>
+
+            <div class="chart-card">
+
+                <h3>Shortage Trend</h3>
+
+                <canvas id="lineChart"></canvas>
+
+            </div>
+
+        </div>
+
+        <!-- Table -->
+
+        <div class="table-section">
+
+            <h2>Production Data</h2>
+
+            <table id="table"></table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
