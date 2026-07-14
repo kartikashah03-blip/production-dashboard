@@ -1,6 +1,9 @@
 // =====================================
 // Global Variables
 // =====================================
+const API_URL =
+    "https://production-dashboard-api.onrender.com";
+
 
 let allData = [];
 
@@ -44,7 +47,7 @@ async function fetchAlerts() {
 
     const response =
         await fetch(
-            "http://127.0.0.1:8000/alerts"
+            "fetch(`${API_URL}/alerts`)"
         );
 
     return await response.json();
@@ -58,7 +61,7 @@ async function loadAnalytics() {
 
     const response =
         await fetch(
-            "http://127.0.0.1:8000/analytics"
+            "fetch(`${API_URL}/analytics`)"
         );
 
     const analytics =
